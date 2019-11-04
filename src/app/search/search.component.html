@@ -1,0 +1,110 @@
+ <div class="row" *ngIf="divdebusqueda">
+   <div class="row" >
+     <div class="col s12">
+       <br>
+       <div class="row">
+          <div class="col s12">
+         <div class="col s6 center-align">
+           <p><label><input name="group1" type="radio" (click)="mostrarOpcionesBusquedaConcesionario()" checked />
+                     <span><label class="obConcesionarios">Concesionario</label></span></label></p>
+         </div>
+         <div class="col s6 center-align">
+           <p><label><input name="group1" type="radio" (click)="mostrarOpcionesBusquedaVehiculo()" />
+                     <span><label class="obConcesionarios">Vehículo</label></span></label></p>
+         </div>
+         </div>
+       </div>
+       <div class="row" *ngIf="opBusquedaConcesionario">
+         <div class="col s4 center-align">
+           <p><label><input name="group2" type="radio" checked />
+               <span><label class="obConcesionarios">Nombre</label></span></label></p>
+         </div>
+         <div class="col s4 center-align">
+           <p><label><input name="group2" type="radio" />
+               <span><label class="obConcesionarios">Sitio</label></span></label></p>
+         </div>
+         <div class="col s4 center-align">
+           <p><label><input name="group2" type="radio" />
+               <span><label class="obConcesionarios">NUC</label></span></label></p>
+         </div>
+       </div>
+       <div class="row" *ngIf="opBusquedaVehiculo">
+         <div class="col s4 center-align">
+           <p><label><input name="group3" type="radio" checked />
+               <span><label class="obConcesionarios">Económico</label></span></label></p>
+         </div>
+         <div class="col s4 center-align">
+           <p><label><input name="group3" type="radio" checked />
+               <span><label class="obConcesionarios">Serie</label></span></label></p>
+         </div>
+         <div class="col s4 center-align">
+           <p><label><input name="group3" type="radio" checked />
+               <span><label class="obConcesionarios">Motor</label></span></label></p>
+         </div>
+       </div>
+     </div>
+   </div>
+   <div class="row">
+     <nav class="col s8 offset-s1" id="divbusquedadearriba">
+       <div class="col s12">
+         <form>
+           <div class="input-field">
+             <div class="col s1">
+               <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+             </div>
+             <div class="col s11" id="cambiotamaniosearch2">
+               <input specialOnly style="text-transform: uppercase" autocomplete="off" placeholder="" id="registroabuscar" name="registroabuscar" type="text" class="form-control" [(ngModel)]="registroabuscar" (ngModelChange)="mychange($event)">
+             </div>
+           </div>
+         </form>
+       </div>
+     </nav>
+   </div>
+ </div>
+ <div class="row">
+   <div class="row" *ngIf="divdebusqueda">
+     <div class="col s10 offset-s1" id="cardinformacionconsecionarios">
+       <div class="row" *ngFor="let consecion  of data; let i = index" (click)="seleccionarregistro(consecion)">
+         <div class="col s12">
+            
+             <div class="row">
+             <div class="col s4  right-align" id="divresponsivosinright">
+             <label class="conseciontitulored" *ngIf="consecion.concesionario.tipoPersona=='F'">Nombre: </label>
+             <label class="conseciontitulored" *ngIf="consecion.concesionario.tipoPersona=='M'">Razón Social:  </label>
+             </div>
+             <div class="col s8" id="divresponsivosinright">
+
+             <label class="conseciontitulo" *ngIf="consecion.concesionario.tipoPersona=='F'">{{consecion.concesionario.nombre}} {{consecion.concesionario.primerApellido	}} {{consecion.concesionario.segundoApellido}}</label>
+             <label class="conseciontitulo" *ngIf="consecion.concesionario.tipoPersona=='M'">{{consecion.concesionario.razonSocial}} </label>
+           </div>
+
+
+           <div class="col s12">
+             <div class="col s4  right-align" id="divresponsivosinright">
+               <label class="conseciontitulopequeñored">Acuerdo:</label>
+             </div>
+             <div class="col s8" id="divresponsivosinright">
+               <label class="conseciontitulo"> {{consecion.acuerdo}}</label>
+             </div>
+           </div>
+           </div>
+
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+ <div class="row">
+   <div class="col s12" *ngIf="registroamostrar!=undefined && divplantillas == true">
+     <div>
+       <div class="col s12 center-align"><br>
+         <div *ngIf="!divdebusqueda" class="col s12 center-align" id="cambiodetamanio3">
+
+           <div class="ui-g-12 ui-md-6 ui-lg-4 center-align">
+             <button pButton type="button" label="Buscar Otro concesionario" class="ui-button-raised ui-button-secondary" (click)="buscarOtroConcesionario()"></button>
+           </div>
+
+         </div>
+       </div><br><br><br>
+     </div>
+    </div>

@@ -1,0 +1,143 @@
+<div class="col s10 offset-s1" *ngIf="IModel!=undefined"  >
+  <div class="card" id="divConcesion">
+    <div class="row">
+      <div class="col s8 offset-s1" *ngIf="IModel!=undefined" ><br>
+        <label class="card-title">DATOS GENERALES DE LA CONCESIÓN</label><br><br>
+      </div>
+      <div class="col s10 offset-s1">
+        <div class="col s4" id="divTituloEstatus">
+          <label class="conseciontitulo"> ESTATUS DE LA CONCESIÓN:</label>
+        </div>
+        <div class="col s4" id="divDatosEstatus">
+          <label class="conseciontitulo"> ACTIVO </label>
+        </div>
+      </div>
+      <div class="col s10 offset-s1">
+        <div class="col s12"><br>
+          <label class="conseciontitulo"> DATOS DE LA CONCESIÓN:</label><br>
+        </div>
+      </div><br>
+      <div class="col s10 offset-s1"><br>
+        <div class="col s6" id="div5responsivo">
+          <div class="col s6 right-align" id="divTitulo">
+            <label class="conseciontitulo"> Acuerdo:</label>
+          </div>
+          <div class="col s6" id="divDatos">
+            <label class="conseciondatos"> {{ IModel.acuerdo	}} </label>
+          </div>
+        </div>
+        <div class="col s6" id="div5responsivo">
+          <div class="col s6 right-align" id="divTitulo">
+            <label class="conseciontitulo"  > Fecha de Acuerdo:</label>
+          </div>
+          <div class="col s6" id="divDatos">
+            <label class="conseciondatos"> {{ IModel.fechaAcuerdo	}} </label>
+          </div>
+        </div>
+      </div>
+      <div class="col s10 offset-s1">
+        <div class="col s6" id="div5responsivo">
+          <div class="col s6 right-align" id="divTitulo">
+            <label class="conseciontitulo" > Modalidad:</label>
+          </div>
+          <div class="col s6" id="divDatos">
+            <label class="conseciondatos"> {{ IModel.modalidad.nombre	}} </label>
+          </div>
+        </div>
+        <div class="col s6" id="div5responsivo">
+          <div class="col s6 right-align" id="divTitulo">
+            <label class="conseciontitulo"> NUC:</label>
+          </div>
+          <div class="col s6" id="divDatos">
+            <label class="conseciondatos"> {{ IModel.nuc	}} </label>
+          </div>
+        </div>
+      </div>
+      <div class="col s10 offset-s1">
+        <div class="col s6" id="div5responsivo">
+          <div class="col s6 right-align" id="divTitulo">
+            <label class="conseciontitulo"> Vigencia:</label>
+          </div>
+          <div class="col s6" id="divDatos">
+            <label class="conseciondatos"> {{ IModel.vigencia	}}  </label>
+          </div>
+        </div>
+        <div class="col s6" id="div5responsivo">
+          <div class="col s6 right-align" id="divTitulo">
+            <label class="conseciontitulo"> N* de Unidades:</label>
+          </div>
+          <div class="col s6" id="divDatos">
+            <label class="conseciondatos"> -------- </label>
+          </div>
+        </div>
+      </div>
+      <div class="col s10 offset-s1">
+       <div class="col s6" id="div5responsivo">
+         <div class="col s6 right-align" id="divTitulo">
+           <label class="conseciontitulo"> Fecha de Inicio:</label>
+         </div>
+         <div class="col s6" id="divDatos">
+           <label class="conseciondatos"> {{ IModel.fechaInicio	}} </label>
+         </div>
+       </div>
+       <div class="col s6" id="div5responsivo">
+         <div class="col s6 right-align" id="divTitulo">
+           <label class="conseciontitulo"> Vencimiento:</label>
+         </div>
+         <div class="col s6" id="divDatos">
+           <label class="conseciondatos"> {{ IModel.fechaVencimiento	}} </label>
+         </div>
+       </div>
+     </div>
+     <div class="col s10 offset-s1">
+       <div class="col s6" id="div5responsivo">
+         <div class="col s6 right-align" id="divTitulo">
+           <label class="conseciontitulo"> Folio Robado:</label>
+         </div>
+         <div class="col s6">
+           <label class="conseciondatos" id="divDatos"> ---------- </label>
+         </div>
+       </div>
+       <div class="col s6" id="div5responsivo">
+         <div class="col s6 right-align" id="divTitulo">
+           <label class="conseciontitulo"> Concesion Bloqueada:</label>
+         </div>
+         <div class="col s6" id="divDatos">
+           <label class="conseciondatos" *ngIf="IModel.condiciones.bloqueado == true">  SI </label>
+           <label class="conseciondatos" *ngIf="IModel.condiciones.bloqueado == false">  NO </label>
+         </div>
+       </div>
+     </div>
+     <div class="col s10 offset-s1">
+       <div class="col s12">
+         <div class="col s3 right-align" id="divTitulo">
+           <label class="conseciontitulo"> Sitio:</label>
+         </div>
+         <div class="col s9" id="divDatos">
+           <label class="conseciondatos">{{ IModel.sitio.nombre	}} </label>
+         </div>
+       </div>
+     </div>
+     <div class="col s10 offset-s1">
+       <div class="col s12">
+         <div class="col s3 right-align" id="divTitulo">
+           <label class="conseciontitulo"> Observaciones:</label>
+         </div>
+         <div class="col s9" id="divDatos">
+           <label class="conseciondatos"> {{IModel.observaciones}} </label>
+         </div>
+       </div>
+     </div>
+     <div class="col s10 offset-s1">
+       <div class="col s12">
+         <div class="col s3 right-align" id="divTitulo">
+           <label class="conseciontitulo"> Observaciones Acta:</label>
+         </div>
+         <div class="col s9" id="divDatos">
+           <label class="conseciondatos"> {{IModel.observacionesActa}} </label><br>
+         </div>
+       </div>
+     </div><br><br>
+   </div><br><br>
+ </div>
+</div>

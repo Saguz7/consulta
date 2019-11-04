@@ -1,1 +1,100 @@
 /* You can add global styles to this file, and also import other style files */
+.custom .ui-scrollpanel-wrapper {
+    border-right: 9px solid #f4f4f4;
+}
+
+.hyphenation {
+     word-break: break-all;
+
+-webkit-hyphens: auto;
+   -moz-hyphens: auto;
+    -ms-hyphens: auto;
+}
+
+
+.tabs .tab a:focus, .tabs .tab a:focus.active {
+    background-color: rgba(215,178,217,0.2);
+    outline: none;
+}
+
+.tabs .tab a {
+    color: rgba(215,178,217,0.2);
+}
+.custom .ui-scrollpanel-bar {
+    background-color: #1976d2;
+    opacity: 1;
+    transition: background-color .3s;
+}
+
+.custom .ui-scrollpanel-bar:hover {
+    background-color: #135ba1;
+}
+
+.ui-listbox {
+    padding: .25em;
+    width: 100%;
+}
+
+body .ui-listbox .ui-listbox-header .ui-listbox-filter-container {
+    width: calc(80% - (0.857em + 0.857em + 0.5em));
+}
+
+body .ui-listbox {
+    padding: 0;
+    min-width: 100%;
+    background: #ffffff;
+ }
+
+
+.ui-steps .ui-steps-item {
+            width: 50%;
+        }
+
+
+
+        .ui-steps.steps-custom {
+            margin-bottom: 30px;
+        }
+
+        .ui-steps.steps-custom .ui-steps-item .ui-menuitem-link {
+            height: 10px;
+            padding: 0 1em;
+        }
+
+        .ui-steps.steps-custom .ui-steps-item .ui-steps-number {
+            background-color: #0081c2;
+            color: #FFFFFF;
+            display: inline-block;
+            width: 36px;
+            border-radius: 50%;
+            margin-top: -14px;
+            margin-bottom: 10px;
+        }
+
+        .ui-steps.steps-custom .ui-steps-item .ui-steps-title {
+            color: #555555;
+            font-size: 10px;
+
+        }
+        @media screen and (max-width: 600px) {
+
+        body .ui-steps .ui-steps-item.ui-state-highlight .ui-steps-title {
+    font-weight: 700;
+    color: #333333;
+    font-size: 12px;
+}
+
+body .ui-steps .ui-steps-item .ui-menuitem-link .ui-steps-title {
+    display: block;
+    margin-top: 6px;
+    color: #848484;
+    font-size: 10px;
+
+}
+
+card .card-title {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+}

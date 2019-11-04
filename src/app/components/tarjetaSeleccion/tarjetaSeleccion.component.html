@@ -1,0 +1,24 @@
+<div class="col s12"  id="div2responsivo">
+  <label class="conseciondatos">{{Title}}: {{ seleccionada }}</label><br><br><br><br>
+  <table class="responsive-table">
+    <thead>
+      <tr>
+        <th class="center-align">[ ]</th>
+        <th class="center-align">{{Title}}</th>
+        <th class="center-align">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of ArrayTabla">
+        <td class="center-align">
+             <label>
+              <input name={{Title}} type="radio" (click)="seleccionar(item)" checked />
+              <span></span>
+            </label>
+         </td>
+        <td class="center-align">{{item.label}}</td>
+        <td class="center-align">{{item.cantidad}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

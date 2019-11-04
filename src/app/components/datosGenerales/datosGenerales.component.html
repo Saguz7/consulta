@@ -1,0 +1,49 @@
+
+ <div class="col s10 offset-s1" *ngIf="IModel!=undefined"   >
+  <div class="card" id="divDatosGenerales">
+    <div class="row">
+      <div class="col s8 offset-s1" *ngIf="IModel!=undefined"><br>
+        <label class="card-title">DATOS PERSONALES</label>
+      </div>
+      <div class="row" *ngIf="IModel!=undefined">
+        <div class="col s12" *ngIf="IModel.concesionario.tipoPersona=='F'">
+          <div class="col s4 center-align" id="div5responsivo">
+            <label class="conseciondatos" *ngIf="IModel.concesionario.primerApellido!=undefined"> {{IModel.concesionario.primerApellido	}} </label><br>
+            <label class="conseciontitulo" > APELLIDO PATERNO </label>
+          </div>
+          <div class="col s4 center-align" id="div5responsivo">
+            <label class="conseciondatos" *ngIf="IModel.concesionario.segundoApellido!=undefined"> {{IModel.concesionario.segundoApellido}}</label><br>
+            <label class="conseciontitulo"  > APELLIDO MATERNO </label>
+          </div>
+          <div class="col s4 center-align" id="div5responsivo">
+            <label class="conseciondatos" *ngIf="IModel.concesionario.nombre!=undefined">{{IModel.concesionario.nombre}}  </label><br>
+            <label class="conseciontitulo" > NOMBRE</label>
+          </div>
+        </div>
+      </div>
+      <div class="row" *ngIf="IModel!=undefined">
+        <div class="col s12" *ngIf="IModel.concesionario.tipoPersona=='M'">
+          <div class="col s6 center-align">
+            <label class="conseciondatos" *ngIf="IModel.concesionario.primerApellido!=undefined"> {{ IModel.concesionario.razonSocial	}} </label><br>
+            <label class="conseciontitulo"> RAZÓN SOCIAL </label>
+          </div>
+          <div class="col s6 center-align">
+            <label class="conseciondatos" *ngIf="IModel.concesionario.rfc!=undefined"> {{IModel.concesionario.rfc}}</label><br>
+            <label class="conseciontitulo"> RFC </label>
+          </div>
+        </div>
+      </div>
+      <div class="col s12" *ngIf="IModel!=undefined && IModel.concesionario.tipoPersona=='F'" >
+        <div class="col s6 center-align" id="div5responsivo">
+          <label class="conseciondatos" *ngIf="IModel.concesionario.curp!=undefined"> {{IModel.concesionario.curp	}} </label><br>
+          <label class="conseciontitulo" > CURP </label>
+        </div>
+        <div class="col s6 center-align" id="div5responsivo">
+          <label class="conseciondatos" *ngIf="IModel.concesionario.rfc!=undefined"> {{IModel.concesionario.rfc}}</label><br>
+          <label class="conseciontitulo"  > RFC </label><br><br>
+        </div>
+      </div>
+      <button pButton type="button" label="ELIMINAR" icon="fa fa-file-pdf-o" class="ui-button-raised ui-button-secondary" (click)="removeMe(index)"></button>
+    </div>
+  </div>
+</div>

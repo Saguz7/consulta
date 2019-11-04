@@ -1,0 +1,44 @@
+<div class="col s10 offset-s1">
+  <h5>Localidad: {{Entidad}}</h5>
+</div>
+<div class="row">
+  <div class="col s10 offset-s1">
+    <ul class="tabs">
+      <li class="tab col s5"><a href="#historico"><label class="obConcesionarios">HISTORICO</label></a></li>
+      <li class="tab col s2"> </li>
+      <li class="tab col s5"><a href="#vencidas"><label class="obConcesionarios">CONCESIONES VENCIDAS</label></a></li>
+    </ul>
+  </div>
+</div><br>
+<div id="historico" class="col s12"><br><br>
+  <div class="row">
+    <div class="col s6 offset-s3 z-depth-2" id="div2responsivo"><br><br>
+      <app-tarjetaSeleccion [Title]="tituloComponenteModalidad" [ArrayTabla]="modalidades"></app-tarjetaSeleccion><br>
+      <div class="col s10 right-align">
+        <h4>Total: 318</h4>
+      </div>
+      <div class="ui-g-12 ui-md-6 ui-lg-6 center-align">
+        <button pButton type="button" icon="fa fa-file-pdf-o" class="ui-button-secondary textPdf" label="PADRON TOTALES"></button>
+      </div>
+      <div class="ui-g-12 ui-md-6 ui-lg-6 center-align">
+        <button pButton type="button" icon="fa fa-file-excel-o" label="PADRON CONCESIONARIOS" class="ui-button-secondary textExcel" ></button><br><br>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="vencidas" class="col s12"><br><br>
+  <div class="row">
+    <div class="col s6 offset-s3 z-depth-2"><br><br>
+      <app-tarjetaSeleccion [Title]="tituloComponenteModalidad" [ArrayTabla]="modalidades"></app-tarjetaSeleccion><br>
+      <div class="col s10 right-align">
+        <h4>Total: 318</h4>
+      </div>
+      <div class="ui-g-12 ui-md-6 ui-lg-6 center-align">
+        <button pButton type="button" icon="fa fa-file-pdf-o" class="ui-button-secondary textPdf" label="PADRON TOTALES"></button>
+      </div>
+      <div class="ui-g-12 ui-md-6 ui-lg-6 center-align">
+        <button pButton type="button" icon="fa fa-file-excel-o" label="PADRON CONCESIONARIOS" class="ui-button-secondary textExcel" ></button><br><br>
+      </div>
+    </div>
+  </div>
+</div>

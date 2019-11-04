@@ -1,0 +1,27 @@
+<div class="col s10 offset-s1">
+  <!-- Menu bar-->
+  <p-menubar [model]="itemsMenu"></p-menubar><br>
+  <!-- Menu Tabs-->
+  <p-tabMenu [model]="items2">
+    <ng-template pTemplate="item" let-item let-i="index">
+      <div style="position: relative; text-align: center; min-width: 10em">
+        <div class="ui-menuitem-icon" [ngClass]="item.icon" *ngIf="item.icon" style="font-size: 2em"></div>
+        <div class="ui-menuitem-text">{{item.label}}</div>
+        <a tabindex="0" class="ui-menuitem-icon" (click)="closeItem($event, i,item.label)" style="position: absolute; right: -1em; top: -.5em; padding: 0" *ngIf="i !== 0">
+          <span class="pi pi-times"></span>
+        </a>
+      </div>
+    </ng-template>
+  </p-tabMenu><br>
+</div>
+
+<!--
+
+<button type="button" (click)="createComponent()">
+    Prueba componente dinamico
+</button>
+
+-->
+<div>
+	<ng-template #viewContainerRef></ng-template>
+</div>
