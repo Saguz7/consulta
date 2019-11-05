@@ -13,40 +13,11 @@
             <!-- Componente de busqueda para concesionarios -->
             <app-search (Ostatus)="check($event)" (Result)="comprobar($event)"></app-search>
             <div class="row">
+
               <div *ngIf="mostrardetalles">
+                <app-parent [IModel]="registroamostrar" [NameComponet]="namecomponet"></app-parent>
 
-
-                <!--
-                 <div class="row" *ngIf="this.variablesItemsBooleans[0].value">
-                  <app-datosGenerales [IModel]="registroamostrar" ></app-datosGenerales>
-                </div>
-                <div class="row" *ngIf="this.variablesItemsBooleans[1].value">
-                  <app-estatusConcesion [IModel]="registroamostrar"></app-estatusConcesion>
-                </div>
-                <div class="row" *ngIf="this.variablesItemsBooleans[2].value">
-                  <app-datosUbicacion [IModel]="registroamostrar"></app-datosUbicacion>
-                </div>
-                <div class="row" *ngIf="this.variablesItemsBooleans[3].value">
-                  <app-datosTramites [IModel]="registroamostrar"></app-datosTramites>
-                </div>
-                <div class="row" *ngIf="this.variablesItemsBooleans[4].value">
-                  <app-permisoDC [IModel]="registroamostrar"></app-permisoDC>
-                </div>
-                <div class="row" *ngIf="this.variablesItemsBooleans[5].value">
-                  <app-tarifa [IModel]="registroamostrar"></app-tarifa>
-                </div>
-                <div class="row" *ngIf="this.variablesItemsBooleans[6].value">
-                  <app-expedientesDC [IModel]="registroamostrar"></app-expedientesDC>
-                </div>
-                <div class="row" *ngIf="this.variablesItemsBooleans[7].value">
-                  <app-revistaT [IModel]="registroamostrar"></app-revistaT>
-                </div>
-
-                -->
-
-                <app-parent [IModel]="registroamostrar"></app-parent>
-
-                <div class="col s8 offset-s3">
+                 <div class="col s8 offset-s3">
                   <div class="ui-g-12 ui-md-6 ui-lg-4 center-align">
                     <button pButton type="button" label="TARJETA INFORMATIVA" icon="fa fa-file-pdf-o" class="ui-button-raised ui-button-secondary" (click)="generaformatoconmakepdf()"></button>
                   </div>

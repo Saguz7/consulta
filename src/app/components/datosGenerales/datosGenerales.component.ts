@@ -13,16 +13,18 @@ import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
   type AOA = any[][];
   pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
+  import {Concesion} from "../../models/vo/concesion";
+
 
   export interface myinterface {
-      remove(index: number);
+      remove(index: number,nameComponet: any);
   }
 
 
  @Component({
   selector: 'app-datosGenerales', templateUrl: './datosGenerales.component.html', styleUrls: ['./datosGenerales.component.css']
 })
-export class DatosGenerales implements OnInit {
+export class DatosGenerales {
 
     public index: number;
     public selfRef: DatosGenerales;
@@ -30,19 +32,16 @@ export class DatosGenerales implements OnInit {
     public compInteraction: myinterface;
 
   @Input() IModel: any;
+  @Input() NameComponet: any;
 
   constructor(
     ){}
-    ngOnInit() {
-
-     }
-
      verImodel(){
-       console.log(this.IModel.concesionario.primerApellido);
+       console.log(this.IModel);
      }
 
-     removeMe(index) {
-       this.compInteraction.remove(index)
+     removeMe(index,nameComponet) {
+       this.compInteraction.remove(index,nameComponet)
 
       }
 

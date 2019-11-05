@@ -16,6 +16,10 @@ import {CreadorComponentesPDFService} from '../services/pdfmake/creacionComponen
 import {CreadorComponentesPDFReportesService} from '../services/pdfmake/creacionComponentesReportes.service';
 import {CreadorReporteExcel} from "../services/excel/creacionReporteExcel.service";
 import {MENU} from "./menu";
+
+
+
+
  @Component({
   selector: 'app-opciontwo', templateUrl: './opciontwo.component.html', styleUrls: ['./opciontwo.component.css']
 })
@@ -43,6 +47,7 @@ export class OpciontwoComponent implements OnInit {
   selectedCity: any;
   modalidades: any[];
   selectedModalidad: string = '';
+  namecomponet: string = '';
   variablesItemsBooleans: any = [];
   arreglocomandosmenus = [
     {command: (event: any) => {
@@ -89,7 +94,6 @@ export class OpciontwoComponent implements OnInit {
       public creadorComponentesPDFService?: CreadorComponentesPDFService,
       public creadorComponentesPDFReportesService?: CreadorComponentesPDFReportesService,
       public creadorReporteExcel?: CreadorReporteExcel
-
     ){}
 
     ngOnInit() {
@@ -186,7 +190,7 @@ export class OpciontwoComponent implements OnInit {
         public comprobar($event){
           this.btnsiguienteaftersearch = $event;
           this.mostrardetalles = false;
-        }
+         }
 
         public comprobarLocalidad($event){
           this.btnsiguienteaftersearch = $event;
@@ -227,7 +231,8 @@ export class OpciontwoComponent implements OnInit {
 
         public  check($event){
           this.mostrardetalles = true;
-          this.registroamostrar = $event;
+          this.registroamostrar = $event; 
+
         }
 
         public  checkLocalidad($event){

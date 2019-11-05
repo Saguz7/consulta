@@ -16,7 +16,7 @@ import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 
 
     export interface myinterface {
-        remove(index: number);
+      remove(index: number,nameComponet: any);
     }
  @Component({
   selector: 'app-datosUbicacion', templateUrl: './datosUbicacion.component.html', styleUrls: ['./datosUbicacion.component.css']
@@ -29,6 +29,7 @@ export class DatosUbicacion implements OnInit {
   public compInteraction: myinterface;
 
   @Input() IModel: any;
+  @Input() NameComponet: any;
 
   constructor(
     ){}
@@ -40,8 +41,8 @@ export class DatosUbicacion implements OnInit {
             console.log(this.IModel.concesionario.primerApellido);
           }
 
-          removeMe(index) {
-            this.compInteraction.remove(index)
+          removeMe(index,nameComponet) {
+            this.compInteraction.remove(index,nameComponet)
 
            }
 

@@ -13,13 +13,22 @@ import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
   type AOA = any[][];
   pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
+      export interface myinterface {
+        remove(index: number,nameComponet: any);
+      }
 
  @Component({
   selector: 'app-estatusConcesion', templateUrl: './estatusConcesion.component.html', styleUrls: ['./estatusConcesion.component.css']
 })
 export class EstatusConcesion implements OnInit {
 
-  @Input() IModel: any;
+    public index: number;
+    public selfRef: EstatusConcesion;
+    //interface for Parent-Child interaction
+    public compInteraction: myinterface;
+
+    @Input() IModel: any;
+    @Input() NameComponet: any;
 
   constructor(
     ){}
@@ -31,7 +40,10 @@ export class EstatusConcesion implements OnInit {
           verImodel(){
             console.log(this.IModel.concesionario.primerApellido);
           }
+          removeMe(index,nameComponet) {
+            this.compInteraction.remove(index,nameComponet)
 
+           }
 
 
 }

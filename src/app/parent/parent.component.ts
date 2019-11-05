@@ -1,51 +1,69 @@
-import { ComponentRef, ComponentFactoryResolver, ViewContainerRef, ViewChild, Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { ComponentRef, ComponentFactoryResolver,ChangeDetectorRef, ViewContainerRef, ViewChild, Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { ChildComponent } from '../child/child.component'
 import { DatosGenerales } from '../components/datosGenerales/datosGenerales.component'
+import { DatosUbicacion } from '../components/datosUbicacion/datosUbicacion.component'
+import { EstatusConcesion } from '../components/estatusConcesion/estatusConcesion.component'
+import { DatosTramitesComponent } from '../components/datosTramites/datosTramites.component'
+import { PermisoDC } from '../components/permisoDC/permisoDC.component'
+import { Tarifa } from '../components/tarifa/tarifa.component'
+import { ExpedientesDC } from '../components/expedientesDC/expedientesDC.component'
+import { RevistaT } from '../components/revistaT/revistaT.component'
 import {MENU} from "./menu";
 import {MenuItem} from 'primeng/api';
-
 @Component({
   selector: 'app-parent',
   templateUrl: './parent.component.html',
   styleUrls: ['./parent.component.css']
 })
 export class ParentComponent {
-
   itemsMenu: MenuItem[];
   items2: MenuItem[];
   activeItem: MenuItem;
   variablesItemsBooleans: any = [];
   arreglocomandosmenus = [
     {command: (event: any) => {
-      this.remove(0);
-  }},
-    {command: (event: any) => {
-     }},
-    {command: (event: any) => {
-     }},
-    {command: (event: any) => {
+      this.limpiarDivs(0);
+      this.limpiarmenu("DATOS GENERALES","divDatosGenerales",0);
     }},
     {command: (event: any) => {
+      this.limpiarDivs(1);
+      this.limpiarmenu("CONCESIÓN","divConcesion",1);
     }},
     {command: (event: any) => {
+      this.limpiarDivs(2);
+      this.limpiarmenu("UBICACIÓN","divUbicacion",2);
     }},
+    {command: (event: any) => {
+     this.limpiarDivs(3);
+     this.limpiarmenu("TRÁMITES","divTramites",3);
+   }},
+    {command: (event: any) => {
+     this.limpiarDivs(4);
+     this.limpiarmenu("PERMISODC","divPermisoDC",4);
+   }},
+    {command: (event: any) => {
+     this.limpiarDivs(5);
+     this.limpiarmenu("TARIFA","divTarifa",5);
+   }},
    {
      command: (event: any) => {
-      }
+      this.limpiarDivs(6);
+      this.limpiarmenu("EXPEDIENTE","divExpedientesDC",6);
+     }
    },
    {
      command: (event: any) => {
-      }
+      this.limpiarDivs(7);
+      this.limpiarmenu("REVISTA Y CROMATICA","divRevistaT",7);
+     }
    }
  ];
   @Input() IModel: any;
-
-  @ViewChild('viewContainerRef', { read: ViewContainerRef  , static: false}) VCR: ViewContainerRef;
+  @Input() NameComponet: any;
+  @ViewChild('viewContainerRef', { read: ViewContainerRef  , static: false})  VCR: ViewContainerRef;
    index: number = 0;
-
-  componentsReferences = [];
-
-  constructor(private CFR: ComponentFactoryResolver) {
+   componentsReferences = [];
+  constructor(private CFR: ComponentFactoryResolver,private cdref: ChangeDetectorRef) {
   }
 
   ngOnInit() {
@@ -54,7 +72,7 @@ export class ParentComponent {
       var o1 =  variables[i] ;
       var o2 =  this.arreglocomandosmenus[i];
       let obj2 = Object.assign(o2, o1);
-      this.variablesItemsBooleans.push(obj2);
+       this.variablesItemsBooleans.push(obj2);
     }
 
      this.itemsMenu = [
@@ -68,16 +86,14 @@ export class ParentComponent {
                   {
                     label: 'Estatus de la concesión',
                     command: (event: any) => {
-                       this.agregaritem("CONCESIÓN");
-                       this.variablesItemsBooleans[1].value = true;
-                    }
+                       this.agregaritem(1,"CONCESIÓN");
+                     }
                   },
                   {
                     label: 'Datos de la Ubicación',
                     command: (event: any) => {
-                      this.agregaritem("UBICACIÓN");
-                      this.variablesItemsBooleans[2].value = true;
-                    }
+                       this.agregaritem(2,"UBICACIÓN");
+                     }
                   },
                 ]
               },
@@ -90,9 +106,7 @@ export class ParentComponent {
             icon: 'pi pi-fw pi-pencil',
             items: [{
               label: 'Agregar todos', command: (event: any) => {
-                this.agregaritem("TRÁMITES");
-                this.variablesItemsBooleans[3].value = true;
-
+                this.agregaritem(3,"TRÁMITES");
               }}
             ]
           },
@@ -102,24 +116,16 @@ export class ParentComponent {
             icon: 'pi pi-fw pi-pencil',
             items: [
               {label: 'Permisos DC', command: (event: any) => {
-                this.agregaritem("PERMISODC");
-                this.variablesItemsBooleans[4].value = true;
-
+                this.agregaritem(4,"PERMISODC");
               }},
               {label: 'Tárifas', command: (event: any) => {
-                this.agregaritem("TARIFA");
-                this.variablesItemsBooleans[5].value = true;
-
+                this.agregaritem(5,"TARIFA");
               }},
               {label: 'Expedientes', command: (event: any) => {
-                this.agregaritem("EXPEDIENTE");
-                this.variablesItemsBooleans[6].value = true;
-
+                this.agregaritem(6,"EXPEDIENTE");
               }},
               {label: 'Revista y Cromatica', command: (event: any) => {
-                this.agregaritem("REVISTA Y CROMATICA");
-                this.variablesItemsBooleans[7].value = true;
-
+                this.agregaritem(7,"REVISTA Y CROMATICA");
               }}
             ]
           }
@@ -137,43 +143,202 @@ export class ParentComponent {
       }
 
 
-      agregaritem(nombre: any){
-        this.createComponent();
+
+      ngAfterViewInit() {
+        this.componentsInitial();
       }
 
-  createComponent() {
-
-    let componentFactory = this.CFR.resolveComponentFactory(DatosGenerales);
 
 
+      componentsInitial(){
+         this.agregaritem(0,"DATOS GENERALES");
+         this.agregaritem(1,"CONCESIÓN");
+         this.agregaritem(2,"UBICACIÓN");
+         this.agregaritem(3,"TRÁMITES");
+      }
 
+      closeItem(event, index) {
+        this.remove(index,this.items2[index]);
+        this.items2 = this.items2.filter((item, i) => i !== index);
+        event.preventDefault();
+       }
 
+      cleanItemsMenu(){
+        this.items2 = [];
+        for(var i = 0; i < this.variablesItemsBooleans.length; i++){
+          if(this.variablesItemsBooleans[i].value){
+             this.items2.push(this.variablesItemsBooleans[i]);
+          }
+        }
+      }
+
+      agregaritem(indice: any,nombre: any){
+        this.items2 = [];
+        for(var i = 0; i < this.variablesItemsBooleans.length; i++){
+          if(this.variablesItemsBooleans[i].label == nombre){
+            this.variablesItemsBooleans[i].value = true;
+            this.variablesItemsBooleans[i].mostrado = false;
+          }
+        }
+        for(var i = 0; i < this.variablesItemsBooleans.length; i++){
+          if(this.variablesItemsBooleans[i].value){
+             this.items2.push(this.variablesItemsBooleans[i]);
+          }
+        }
+        let componentFactory;
+        switch (indice) {
+                case 0:
+                if(!this.variablesItemsBooleans[0].mostrado){
+                  componentFactory = this.CFR.resolveComponentFactory(DatosGenerales);
+                  this.NameComponet=this.variablesItemsBooleans[0].label;
+                  this.createComponent(componentFactory);
+                 }
+                 this.variablesItemsBooleans[0].mostrado = true;
+                  break;
+                case 1:
+                if(!this.variablesItemsBooleans[1].mostrado){
+                  componentFactory = this.CFR.resolveComponentFactory(EstatusConcesion);
+                  this.NameComponet=this.variablesItemsBooleans[1].label;
+                  this.createComponent(componentFactory);
+                 }
+                this.variablesItemsBooleans[1].mostrado = true;
+                 break;
+                case 2:
+                if(!this.variablesItemsBooleans[2].mostrado){
+                  componentFactory = this.CFR.resolveComponentFactory(DatosUbicacion);
+                  this.NameComponet=this.variablesItemsBooleans[2].label;
+                  this.createComponent(componentFactory);
+                 }
+                this.variablesItemsBooleans[2].mostrado = true;
+                break;
+                case 3:
+                if(!this.variablesItemsBooleans[3].mostrado){
+                  componentFactory = this.CFR.resolveComponentFactory(DatosTramitesComponent);
+                  this.NameComponet=this.variablesItemsBooleans[3].label;
+                  this.createComponent(componentFactory);
+                 }
+                this.variablesItemsBooleans[3].mostrado = true;
+                break;
+                case 4:
+                if(!this.variablesItemsBooleans[4].mostrado){
+                  componentFactory = this.CFR.resolveComponentFactory(PermisoDC);
+                  this.NameComponet=this.variablesItemsBooleans[4].label;
+                  this.createComponent(componentFactory);
+                 }
+                this.variablesItemsBooleans[4].mostrado = true;
+                break;
+                case 5:
+                if(!this.variablesItemsBooleans[5].mostrado){
+                  componentFactory = this.CFR.resolveComponentFactory(Tarifa);
+                  this.NameComponet=this.variablesItemsBooleans[5].label;
+                  this.createComponent(componentFactory);
+                 }
+                this.variablesItemsBooleans[5].mostrado = true;
+                break;
+                case 6:
+                if(!this.variablesItemsBooleans[6].mostrado){
+                  componentFactory = this.CFR.resolveComponentFactory(ExpedientesDC);
+                  this.NameComponet=this.variablesItemsBooleans[6].label;
+                  this.createComponent(componentFactory);
+                 }
+                this.variablesItemsBooleans[6].mostrado = true;
+                break;
+                case 7:
+                if(!this.variablesItemsBooleans[7].mostrado){
+                  componentFactory = this.CFR.resolveComponentFactory(RevistaT);
+                  this.NameComponet=this.variablesItemsBooleans[7].label;
+                  this.createComponent(componentFactory);
+                 }
+                this.variablesItemsBooleans[7].mostrado = true;
+                break;
+                default:
+                break;
+                 }
+       }
+
+  createComponent(componentFactory: any) {
     let componentRef: ComponentRef<any> = this.VCR.createComponent(componentFactory);
     let currentComponent = componentRef.instance;
     currentComponent.selfRef = currentComponent;
     componentRef.instance.IModel = this.IModel;
+    componentRef.instance.NameComponet = this.NameComponet;
     currentComponent.index = ++this.index;
     currentComponent.compInteraction = this;
-    console.log(this.componentsReferences);
-
-    // add reference for newly created component
-    this.componentsReferences.push(componentRef);
+     this.componentsReferences.push(componentRef);
   }
 
-  remove(index: number) {
-
+  remove(index: number, nameComponet: any) {
     if (this.VCR.length < 1)
       return;
-
-    let componentRef = this.componentsReferences.filter(x => x.instance.index == index)[0];
+    let componentRef = this.componentsReferences.filter(x => x.instance.NameComponet == nameComponet.label)[0];
     let component: ChildComponent = <ChildComponent>componentRef.instance;
-
-    let vcrIndex: number = this.VCR.indexOf(componentRef)
-
-    // removing component from container
-    this.VCR.remove(vcrIndex);
-
-    this.componentsReferences = this.componentsReferences.filter(x => x.instance.index !== index);
+    let vcrIndex: number = this.VCR.indexOf(componentRef);
+     this.VCR.remove(vcrIndex);
+    this.componentsReferences = this.componentsReferences.filter(x => x.instance.NameComponet !== nameComponet.label);
   }
+
+  public limpiarDivs(indice: any){
+     for(var i = 0; i < this.variablesItemsBooleans.length;i++){
+       if(this.variablesItemsBooleans[i].mostrado && indice!= i && this.variablesItemsBooleans[i].value){
+        this.limpiarMenudirecto(this.variablesItemsBooleans[i].label,this.variablesItemsBooleans[i].div,i)
+      }
+    }
+  }
+
+  limpiarMenudirecto(nombre: any, div: any,indice:any){
+    let itemsmenu = document.getElementsByClassName("ui-menuitem-text");
+    let itemmenu = null;
+    for(var i = 0; i < itemsmenu.length; i++){
+      if(itemsmenu[i].firstChild.textContent == nombre ){
+        itemmenu = itemsmenu[i];
+       }
+    }
+    let itemsmenu2 = document.getElementsByClassName("pi pi-times") as HTMLCollectionOf<HTMLElement>;
+          document.getElementById(div).style.border = "";
+          itemmenu.parentNode.parentNode.parentNode.style.border = "1px solid #c8c8c8";
+          itemmenu.parentNode.parentNode.parentNode.style.background = "#f4f4f4";
+          for(var i = 0; i < itemsmenu2.length; i++){
+            itemsmenu2[i].style.color = "#333333";
+          }
+          itemmenu.style.color = "#333333";
+          this.asignarmostrado(indice,false);
+  }
+
+  limpiarmenu(nombre: any, div: any,indice: any){
+    let itemsmenu = document.getElementsByClassName("ui-menuitem-text");
+    let itemmenu = null;
+    for(var i = 0; i < itemsmenu.length; i++){
+        if(itemsmenu[i].firstChild.textContent == nombre){
+        itemmenu = itemsmenu[i];
+       }
+    }
+    let itemsmenu2 = document.getElementsByClassName("pi pi-times") as HTMLCollectionOf<HTMLElement>;
+        if(document.getElementById(div).style.border.length>0){
+          document.getElementById(div).style.border = "";
+          itemmenu.parentNode.parentNode.parentNode.style.border = "1px solid #c8c8c8";
+          itemmenu.parentNode.parentNode.parentNode.style.background = "#f4f4f4";
+          for(var i = 0; i < itemsmenu2.length; i++){
+            itemsmenu2[i].style.color = "#333333";
+          }
+          itemmenu.style.color = "#333333";
+          document.getElementById(div).style.border = "";
+          this.asignarmostrado(indice,false);
+        }else{
+          itemmenu.parentNode.parentNode.parentNode.style.border = "1px solid #007ad9";
+          itemmenu.parentNode.parentNode.parentNode.style.background = "#007ad9";
+          document.getElementById(div).style.border = "thick solid #0000FF";
+          for(var i = 0; i < itemsmenu2.length; i++){
+            itemsmenu2[i].style.color = "#000000";
+          }
+          itemmenu.style.color = "#FFFFFF";
+          document.getElementById(div).style.border = "thick solid #0000FF";
+          this.asignarmostrado(indice,true);
+          window.location.hash = '#'+div;
+        }
+  }
+
+  asignarmostrado(indice: any, booleano: any){
+      this.variablesItemsBooleans[indice].mostrado = booleano;
+   }
 
 }

@@ -102,9 +102,16 @@ import { ChildComponent } from './child/child.component';
   ],
   entryComponents: [
     ChildComponent,
-    DatosGenerales
+    DatosGenerales,
+    DatosUbicacion,
+    EstatusConcesion,
+    DatosTramitesComponent,
+    PermisoDC,
+    Tarifa,
+    ExpedientesDC,
+    RevistaT
   ],
-  providers: [],
+  providers: [OpciontwoComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

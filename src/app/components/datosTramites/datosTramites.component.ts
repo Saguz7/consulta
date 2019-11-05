@@ -13,13 +13,22 @@ import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
   type AOA = any[][];
   pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
-
+  export interface myinterface {
+    remove(index: number,nameComponet: any);
+  }
  @Component({
   selector: 'app-datosTramites', templateUrl: './datosTramites.component.html', styleUrls: ['./datosTramites.component.css']
 })
 export class DatosTramitesComponent implements OnInit {
 
-  @Input() IModel: any;
+
+    public index: number;
+    public selfRef: DatosTramitesComponent;
+    //interface for Parent-Child interaction
+    public compInteraction: myinterface;
+
+    @Input() IModel: any;
+    @Input() NameComponet: any;
     tramites: any[];
     cols: any[];
   constructor(
@@ -67,6 +76,12 @@ export class DatosTramitesComponent implements OnInit {
           verImodel(){
             console.log(this.IModel.concesionario.primerApellido);
           }
+
+
+                    removeMe(index,nameComponet) {
+                      this.compInteraction.remove(index,nameComponet)
+
+                     }
 
 
 

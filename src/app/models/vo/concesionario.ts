@@ -1,11 +1,11 @@
 export class Concesionario {
     nombre: String;
-    primer_apellido: String;
-    segundo_apellido: String;
+    primerApellido: String;
+    segundoApellido: String;
 
     constructor(
       nombre?: String,
-      primer_apellido?: String,
-      segundo_apellido?: String
+      primerApellido?: String,
+      segundoApellido?: String
     ) {}
 }
