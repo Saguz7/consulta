@@ -8,11 +8,7 @@ export class CreadorComponentesPDFService {
   constructor() { }
 
   getDatosGenerales(concesion: any){
-     let datosGenerales = [
-      { columns: [
-           { width: '100%', text: 'INFORMACIÓN GENERAL DEL CONCESIONARIO', fontSize: 13,bold: true,alignment: 'center' }
-        ]
-      },
+     let datosGenerales = [ 
       {
           canvas: [
             {
@@ -764,11 +760,145 @@ export class CreadorComponentesPDFService {
   }
 
   getDatosExpedientes(){
+    let datosExpedientes = [
+            { columns: [
+                { width: 40, text: '', margin: [0, 2, 0, 0]},
+               ]
+            },{ //aqui empieza DATOS DE UBICACION
+                  canvas: [
+                    {
+                      type: 'rect',
+                      x: 20,
+                      y: 10,
+                      w: 510,
+                      h: 20,
+                      color: '#f5f5f5',
+                    },
+                  ]
+                },
+            { columns: [
+                { width: 20, text: ''},
+                { width: 300, text: 'DICTAMENES', fontSize: 12,bold: true, margin: [0, -17, 0, 0]}
+              ]
+            },
+            { columns: [
+                { width: 40, text: '', margin: [0, 2, 0, 0]},
+               ]
+            },
+            { columns: [
+                { width: 40, text: '', margin: [0, 2, 0, 0]},
+               ]
+            },
+            {
+                canvas: [
+                  {
+                    type: 'rect',
+                    x: 90,
+                    y: 0,
+                    w: 170,
+                    h: 20,
+                    color: '#f5f5f5',
+                  },
+                ]
+              },
+              {
+                  canvas: [
+                    {
+                      type: 'rect',
+                      x: 360,
+                      y: -20,
+                      w: 170,
+                      h: 20,
+                      color: '#f5f5f5',
+                    },
+                  ]
+                },
+              { columns: [
+                  { width: 20, text: ''},
+                  { width: 65, text: 'FECHA CREACIÓN:', fontSize: 10,bold: true, margin: [0, -20, 0, 0],alignment: 'right'},
+                  { width: 10, text: ''},
+                  { width: 160, text: "30/10/2019", fontSize: 10, margin: [0, -17, 0, 0],alignment: 'center'},
+                  { width: 5, text: ''},
+                  { width: 90, text: 'ETAPA ACTUAL:', fontSize: 10,bold: true, margin: [0, -20, 0, 0],alignment: 'right'},
+                  { width: 20, text: ''},
+                  { width: 150, text: "FINALIZADO", fontSize: 10, margin: [0, -17, 0, 0],alignment: 'center'}
 
+                ]
+              }
+
+    ];
+    return datosExpedientes;
   }
 
   getDatosRevista(){
+    let datosRevista = [
+            { columns: [
+                { width: 40, text: '', margin: [0, 2, 0, 0]},
+               ]
+            },{ //aqui empieza DATOS DE UBICACION
+                  canvas: [
+                    {
+                      type: 'rect',
+                      x: 20,
+                      y: 10,
+                      w: 510,
+                      h: 20,
+                      color: '#f5f5f5',
+                    },
+                  ]
+                },
+            { columns: [
+                { width: 20, text: ''},
+                { width: 300, text: 'REVISTA Y CROMATICA', fontSize: 12,bold: true, margin: [0, -17, 0, 0]}
+              ]
+            },
+            { columns: [
+                { width: 40, text: '', margin: [0, 2, 0, 0]},
+               ]
+            },
+            { columns: [
+                { width: 40, text: '', margin: [0, 2, 0, 0]},
+               ]
+            },
+            {
+                canvas: [
+                  {
+                    type: 'rect',
+                    x: 90,
+                    y: 0,
+                    w: 170,
+                    h: 20,
+                    color: '#f5f5f5',
+                  },
+                ]
+              },
+              {
+                  canvas: [
+                    {
+                      type: 'rect',
+                      x: 360,
+                      y: -20,
+                      w: 170,
+                      h: 20,
+                      color: '#f5f5f5',
+                    },
+                  ]
+                },
+              { columns: [
+                  { width: 20, text: ''},
+                  { width: 65, text: 'Ejemplo:', fontSize: 10,bold: true, margin: [0, -20, 0, 0],alignment: 'right'},
+                  { width: 10, text: ''},
+                  { width: 160, text: "Ejemplo", fontSize: 10, margin: [0, -17, 0, 0],alignment: 'center'},
+                  { width: 5, text: ''},
+                  { width: 90, text: 'Ejemplo:', fontSize: 10,bold: true, margin: [0, -20, 0, 0],alignment: 'right'},
+                  { width: 20, text: ''},
+                  { width: 150, text: "Ejemplo", fontSize: 10, margin: [0, -17, 0, 0],alignment: 'center'}
 
+                ]
+              }
+
+    ];
+    return datosRevista;
   }
 
 
@@ -839,7 +969,7 @@ export class CreadorComponentesPDFService {
   getBitacoradeTramites(){
 
      let arrayParaTabla = [];
-     for(var i = 0; i < 10; i++){
+     for(var i = 0; i < 18; i++){
        if(i == 0){
          arrayParaTabla.push(
            [ {text: 'REFERENCIA', fontSize:9, bold: true,alignment: 'center' } ,

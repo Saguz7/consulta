@@ -13,18 +13,9 @@
             <!-- Componente de busqueda para concesionarios -->
             <app-search (Ostatus)="check($event)" (Result)="comprobar($event)"></app-search>
             <div class="row">
-
               <div *ngIf="mostrardetalles">
+                <!-- Componente padre contenedor de los diversos hijos de la concesion y menu-->
                 <app-parent [IModel]="registroamostrar" [NameComponet]="namecomponet"></app-parent>
-
-                 <div class="col s8 offset-s3">
-                  <div class="ui-g-12 ui-md-6 ui-lg-4 center-align">
-                    <button pButton type="button" label="TARJETA INFORMATIVA" icon="fa fa-file-pdf-o" class="ui-button-raised ui-button-secondary" (click)="generaformatoconmakepdf()"></button>
-                  </div>
-                  <div class="ui-g-12 ui-md-6 ui-lg-4 center-align">
-                    <button pButton type="button" label="DESCARGAR REPORTE" icon="fa fa-file-excel-o" class="ui-button-raised ui-button-secondary" (click)="generarexcel()"></button>
-                  </div>
-                </div>
               </div>
             </div>
           </div>

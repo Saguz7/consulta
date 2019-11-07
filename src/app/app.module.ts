@@ -49,10 +49,17 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
 
+import {DialogModule} from 'primeng/dialog';
+
+import {DynamicDialogModule} from 'primeng/dynamicdialog';
+
+import { TramitesModalComponent } from './shared/modals/tramitesModal/tramitesModal.component';
+import { IncidenciasModalComponent } from './shared/modals/incidenciasModal/incidenciasModal.component';
 
 
+import { SitioEstatus } from './components/sitioEstatus/sitioEstatus.component';
 
-@NgModule({
+ @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
@@ -75,7 +82,10 @@ import { ChildComponent } from './child/child.component';
     ExpedientesDC,
     RevistaT,
     ParentComponent,
-    ChildComponent
+    ChildComponent,
+    TramitesModalComponent,
+    IncidenciasModalComponent,
+    SitioEstatus
   ],
   imports: [
     BrowserModule,
@@ -90,6 +100,7 @@ import { ChildComponent } from './child/child.component';
     ButtonModule,
     CardModule,
     ScrollPanelModule,
+    DialogModule,
      TabViewModule,
      StepsModule,
      TabMenuModule,
@@ -98,7 +109,8 @@ import { ChildComponent } from './child/child.component';
      TableModule,
      MultiSelectModule,
      RadioButtonModule,
-     FontAwesomeModule
+     FontAwesomeModule,
+     DynamicDialogModule
   ],
   entryComponents: [
     ChildComponent,
@@ -109,7 +121,8 @@ import { ChildComponent } from './child/child.component';
     PermisoDC,
     Tarifa,
     ExpedientesDC,
-    RevistaT
+    RevistaT,
+    TramitesModalComponent
   ],
   providers: [OpciontwoComponent],
   bootstrap: [AppComponent]

@@ -16,15 +16,15 @@
        </div>
        <div class="row" *ngIf="opBusquedaConcesionario">
          <div class="col s4 center-align">
-           <p><label><input name="group2" type="radio" checked />
+           <p><label><input name="group2" type="radio" (click)="asignarBusquedaXNombre()" checked />
                <span><label class="obConcesionarios">Nombre</label></span></label></p>
          </div>
          <div class="col s4 center-align">
-           <p><label><input name="group2" type="radio" />
+           <p><label><input name="group2" type="radio" (click)="asignarBusquedaXSitio()"/>
                <span><label class="obConcesionarios">Sitio</label></span></label></p>
          </div>
          <div class="col s4 center-align">
-           <p><label><input name="group2" type="radio" />
+           <p><label><input name="group2" type="radio" (click)="asignarBusquedaXNUC()"/>
                <span><label class="obConcesionarios">NUC</label></span></label></p>
          </div>
        </div>
@@ -62,11 +62,37 @@
    </div>
  </div>
  <div class="row">
-   <div class="row" *ngIf="divdebusqueda">
+   <div *ngIf="divdebusqueda && divdebusquedaSitio">
+     <div class="col s10 offset-s1" id="cardinformacionconsecionarios">
+       <div class="row" *ngFor="let sitio  of sitios; let i = index" (click)="seleccionarsitio(sitio)">
+         <div class="col s12">
+           <div class="row">
+             <div class="col s4  right-align" id="divresponsivosinright">
+             <label class="conseciontitulored"  >Nombre: </label>
+              </div>
+             <div class="col s8" id="divresponsivosinright">
+
+              <label class="conseciontitulo"  >{{sitio.nombre}} </label>
+           </div>
+           <div class="col s12">
+             <div class="col s4  right-align" id="divresponsivosinright">
+               <label class="conseciontitulopequeñored">Localidad:</label>
+             </div>
+             <div class="col s8" id="divresponsivosinright">
+               <label class="conseciontitulo"> {{sitio.localidad}}</label>
+             </div>
+           </div>
+             </div>
+           </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="row" *ngIf="divdebusqueda && (busquedapornombre || busquedapornuc)">
      <div class="col s10 offset-s1" id="cardinformacionconsecionarios">
        <div class="row" *ngFor="let consecion  of data; let i = index" (click)="seleccionarregistro(consecion)">
          <div class="col s12">
-            
+
              <div class="row">
              <div class="col s4  right-align" id="divresponsivosinright">
              <label class="conseciontitulored" *ngIf="consecion.concesionario.tipoPersona=='F'">Nombre: </label>
@@ -77,8 +103,14 @@
              <label class="conseciontitulo" *ngIf="consecion.concesionario.tipoPersona=='F'">{{consecion.concesionario.nombre}} {{consecion.concesionario.primerApellido	}} {{consecion.concesionario.segundoApellido}}</label>
              <label class="conseciontitulo" *ngIf="consecion.concesionario.tipoPersona=='M'">{{consecion.concesionario.razonSocial}} </label>
            </div>
-
-
+           <div class="col s12">
+             <div class="col s4  right-align" id="divresponsivosinright">
+               <label class="conseciontitulopequeñored">NUC:</label>
+             </div>
+             <div class="col s8" id="divresponsivosinright">
+               <label class="conseciontitulo"> {{consecion.nuc}}</label>
+             </div>
+           </div>
            <div class="col s12">
              <div class="col s4  right-align" id="divresponsivosinright">
                <label class="conseciontitulopequeñored">Acuerdo:</label>
@@ -108,3 +140,16 @@
        </div><br><br><br>
      </div>
     </div>
+
+
+    <div class="col s12" *ngIf="divsitio == true">
+      <div>
+        <div class="col s12 center-align"><br>
+          <div *ngIf="divsitio == true" class="col s12 center-align" id="cambiodetamanio3">
+            <app-sitioEstatus></app-sitioEstatus>
+
+
+          </div>
+        </div><br><br><br>
+      </div>
+     </div>

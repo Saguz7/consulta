@@ -16,8 +16,9 @@
 export class SearchComponent implements OnInit {
 
   divdebusqueda: boolean = true;
-  busquedapornuc: boolean = false;
   busquedapornombre: boolean = true;
+  busquedapornuc: boolean = false;
+  busquedaporsitio: boolean = false;
   registroabuscar: any;
   data: Observable<any>;
   divplantillas: boolean = false;
@@ -26,6 +27,10 @@ export class SearchComponent implements OnInit {
   @Output() Result = new EventEmitter<any>();
   opBusquedaConcesionario: boolean = true;
   opBusquedaVehiculo: boolean = false;
+  divdebusquedaSitio: boolean = false;
+  divsitio: boolean = false;
+
+  sitios: any;
 
   constructor(
       private router?: Router,
@@ -33,33 +38,55 @@ export class SearchComponent implements OnInit {
     ){}
 
   ngOnInit() {
+       this.sitios = [
+         {nombre:"Centro Oaxaca",localidad:"OAXACA DE JUAREZ"},
+         {nombre:"Centro Oaxaca2",localidad:"OAXACA DE JUAREZ"},
+         {nombre:"Centro Oaxaca3",localidad:"OAXACA DE JUAREZ"},
+         {nombre:"Centro Oaxaca4",localidad:"OAXACA DE JUAREZ"},
+         {nombre:"Centro Oaxaca5",localidad:"OAXACA DE JUAREZ"},
+         {nombre:"Centro Oaxaca6",localidad:"OAXACA DE JUAREZ"},
+         {nombre:"Centro Oaxaca7",localidad:"OAXACA DE JUAREZ"},
+         {nombre:"Centro Oaxaca8",localidad:"OAXACA DE JUAREZ"},
+         {nombre:"Centro Oaxaca9",localidad:"OAXACA DE JUAREZ"},
+         {nombre:"Centro Oaxaca10",localidad:"OAXACA DE JUAREZ"}
+       ];
       }
 
 
-      cambiarestado(){
-
+       asignarBusquedaXNombre(){
         this.busquedapornombre=true;
         this.busquedapornuc=false;
-      }
+        this.busquedaporsitio=false;
+       }
 
-
-      cambiarestado2(){
-
+       asignarBusquedaXSitio(){
         this.busquedapornombre=false;
-        this.busquedapornuc=true;
+        this.busquedaporsitio=true;
+        this.busquedapornuc=false;
+        }
 
+       asignarBusquedaXNUC(){
+        this.busquedapornombre=false;
+        this.busquedaporsitio=false;
+        this.busquedapornuc=true;
        }
 
       mychange(event)
        {
-            this.divdebusqueda = true;
-            if(this.busquedapornombre==true){
+
+             if(this.busquedapornombre==true){
+               this.divdebusqueda = true;
                this.llamarregistros(1);
-             }else{
-                if(this.busquedapornuc==true){
-                  this.llamarregistros(2);
-                }
+             }
+             if(this.busquedapornuc==true){
+               this.divdebusqueda = true;
+               this.llamarregistros(2);
+             }
+             if(this.busquedaporsitio==true){
+               this.divdebusqueda = true;
+               this.divdebusquedaSitio = true;
               }
+
       }
 
 
@@ -89,6 +116,12 @@ export class SearchComponent implements OnInit {
                   this.divplantillas = true;
 
     }
+
+  seleccionarsitio(){
+    this.divplantillas = false;
+    this.divdebusqueda = false;
+    this.divsitio = true;
+  }
 
     mostrarOpcionesBusquedaConcesionario(){
       this.opBusquedaConcesionario= true;

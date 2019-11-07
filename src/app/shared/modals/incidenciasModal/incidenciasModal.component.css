@@ -1,15 +1,20 @@
-
-.obConcesionarios{
-  font-size: 13px;
-  color: black;
+.conseciontitulo{
+  font-size: 18px;
   font-family: fuenteparacuerpo;
+  color: #553276;
 
 }
 
-.conseciontitulo{
-  font-size: 13px;
-  font-family: fuenteparacuerpo;
 
+.conseciondatos{
+  font-size: 14px;
+  color: #000000;
+
+}
+.card-title{
+  font-size: 25px;
+  color: #000000;
+  font-family: fuenteparatitulos;
 }
 
 
@@ -165,19 +170,19 @@ nav .input-field label i {
 }
 
 .conseciontitulo{
-  font-size: 22px;
+  font-size: 12px;
   color: #000000;
 }
 
 .conseciontitulored{
-  font-size: 24px;
+  font-size: 14px;
   color: #e91e63;
   font-family: fuenteparatitulos;
 
  }
 
 .conseciontitulopequeño{
-  font-size: 23px;
+  font-size: 13px;
   color: #000000;
   font-family: fuenteparacuerpo;
 
@@ -194,7 +199,7 @@ nav .input-field label i {
 }
 
 .conseciontitulopequeñored{
-  font-size: 20px;
+  font-size: 13px;
   color: #e91e63;
   font-family: fuenteparatitulos;
 
@@ -508,27 +513,13 @@ width: 70%; /*Aquí va el ancho de la Celda*/
     width: 100%;
   }
 
-  #cambiodetamanio3{
-    width: 100%;
-
-  }
-
-
-
   #div1responsivo{
     width: 100%;
     margin-left: -10%;
   }
 
-  #cambiotamaniosearch2 {
-      width: 85%;
-
-  }
-
   #nombre{
     margin-left: 5%;
-    width: 100%;
-
   }
 
   #div6responsivo{
@@ -545,10 +536,17 @@ width: 70%; /*Aquí va el ancho de la Celda*/
   }
 
   #divbusquedadearriba{
-    width: 78%;
-    margin-left: 10%;
+    width: 100%;
+    margin-left: 4%;
 
   }
+
+  #divbusquedadearriba[_ngcontent-aql-c1] {
+   width: 100%;
+}
+#divbusquedadearriba[_ngcontent-aql-c1] {
+   margin-left: 1%;
+}
 
 #div4responsivo{
   margin-left: 19%;
@@ -560,8 +558,9 @@ width: 70%; /*Aquí va el ancho de la Celda*/
 #div5responsivo{
   width: 100%;
 }
-#divresponsivosinright{
-  align-content:left;
+
+#divbusquedadearriba{
+  width: 90%;
 }
 
 #div7responsivo{
@@ -669,6 +668,16 @@ width: 70%; /*Aquí va el ancho de la Celda*/
   margin-left: 5%;
 }
 
+.card-title{
+  font-size: 15px;
+}
 
+.conseciontitulo{
+  font-size: 12px;
+}
+
+.conseciondatos{
+  font-size: 14px;
+}
 
 }
