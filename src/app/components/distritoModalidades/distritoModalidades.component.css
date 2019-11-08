@@ -1,22 +1,59 @@
+
+
+body .ui-button.ui-state-default.ui-button-secondary, body .ui-buttonset.ui-button-secondary > .ui-button.ui-state-default {
+
+color: #f00;
+background-color:
+#f4f4f4;
+border: 1px solid
+    #f4f4f4;
+}
+
+.obConcesionarios{
+  font-size: 14px;
+  color: black;
+  font-family: fuenteparacuerpo;
+
+}
+
+.block {
+    height: 100%;
+}
+
+.paddignicon{
+  margin-right: 10px;
+  margin-top: 7px;
+  margin-left: -5px;
+}
+
+
+.conseciontitulo{
+  font-size: 18px;
+  font-family: fuenteparacuerpo;
+  color: #553276;
+
+}
+
+
+.conseciondatos{
+  font-size: 20px;
+  color: #000000;
+
+}
+.card-title{
+  font-size: 25px;
+  color: #000000;
+  font-family: fuenteparatitulos;
+}
+
+
 .sinsalirse{
   word-break: break-all;
 word-wrap: break-word;
 }
 
-.card-title{
-  font-size: 25px;
-  color: #e91e63;
-  font-family: fuenteparatitulos;
-}
-
 #btnrealizarotrabusqueda{
   width: 40%;
-
-}
-
-.conseciondatos{
-  font-size: 16px;
-  color: #000000;
 
 }
 
@@ -107,33 +144,6 @@ hr {
    font-size: 10pt;
 }
 
-
-th {
-     width: 25%;
-  font-size: 13px;
-  font-weight: normal;
-  padding: 8px;
-     border-top: 4px solid #aabcfe;
-    border-bottom: 1px solid #fff;
-    color: #039;
-    border: 1px solid #000;
-   border-spacing: 0;
-  }
-
-td {
-     width: 25%;
-  padding: 8px;
-   border-bottom: 1px solid #fff;
-    color: #669;
-    border-top: 1px solid transparent;
-    border: 1px solid #000;
-   border-spacing: 0;
-  }
-
-tr:hover td {
-
-  }
-
 #container {
   background-color: #f1f1f1;
 }
@@ -162,10 +172,8 @@ nav .input-field label i {
 }
 
 .conseciontitulo{
-  font-size: 16px;
-  font-family: fuenteparatitulos;
+  font-size: 12px;
   color: #000000;
-
 }
 
 .conseciontitulored{
@@ -367,6 +375,15 @@ padding: 10px 90px;
 
 }
 
+#div2responsivoIzquierda{
+  width: 45%;
+}
+
+#div2responsivoDerecha{
+  margin-left:   5%;
+  width: 45%;
+
+}
 
 #divbusquedadearriba{
    margin-left: 15%;
@@ -522,11 +539,19 @@ width: 70%; /*Aquí va el ancho de la Celda*/
   }
 
   #div2responsivo{
-    width: 100%;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+
   }
 
+
+
   #div3responsivo{
-    width: 100%;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 10%;
   }
 
   #divbusquedadearriba{
@@ -667,22 +692,11 @@ width: 70%; /*Aquí va el ancho de la Celda*/
 }
 
 .conseciontitulo{
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .conseciondatos{
-  font-size: 15px;
+  font-size: 14px;
 }
-
-
-#divTitulo{
-  width: 35%;
-}
-
-#divDatos{
-  width: 65%;
-}
-
-
 
 }

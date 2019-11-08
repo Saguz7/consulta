@@ -1,22 +1,39 @@
+
+.obConcesionarios{
+  font-size: 14px;
+  color: black;
+  font-family: fuenteparacuerpo;
+
+}
+
+
+.conseciontitulo{
+  font-size: 18px;
+  font-family: fuenteparacuerpo;
+  color: #553276;
+
+}
+
+
+.conseciondatos{
+  font-size: 20px;
+  color: #000000;
+
+}
+.card-title{
+  font-size: 25px;
+  color: #000000;
+  font-family: fuenteparatitulos;
+}
+
+
 .sinsalirse{
   word-break: break-all;
 word-wrap: break-word;
 }
 
-.card-title{
-  font-size: 25px;
-  color: #e91e63;
-  font-family: fuenteparatitulos;
-}
-
 #btnrealizarotrabusqueda{
   width: 40%;
-
-}
-
-.conseciondatos{
-  font-size: 16px;
-  color: #000000;
 
 }
 
@@ -162,10 +179,8 @@ nav .input-field label i {
 }
 
 .conseciontitulo{
-  font-size: 16px;
-  font-family: fuenteparatitulos;
+  font-size: 12px;
   color: #000000;
-
 }
 
 .conseciontitulored{
@@ -522,8 +537,12 @@ width: 70%; /*Aquí va el ancho de la Celda*/
   }
 
   #div2responsivo{
-    width: 100%;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+
   }
+
 
   #div3responsivo{
     width: 100%;
@@ -667,22 +686,11 @@ width: 70%; /*Aquí va el ancho de la Celda*/
 }
 
 .conseciontitulo{
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .conseciondatos{
-  font-size: 15px;
+  font-size: 14px;
 }
-
-
-#divTitulo{
-  width: 35%;
-}
-
-#divDatos{
-  width: 65%;
-}
-
-
 
 }

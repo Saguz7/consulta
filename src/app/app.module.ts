@@ -24,6 +24,8 @@ import { RevistaT } from './components/revistaT/revistaT.component';
 
  import { LocalidadModalidadesComponent } from './components/localidadModalidades/localidadModalidades.component';
  import { MunicipioModalidades } from './components/municipioModalidades/municipioModalidades.component';
+ import { DistritoModalidades } from './components/distritoModalidades/distritoModalidades.component';
+ import { RegionModalidades } from './components/regionModalidades/regionModalidades.component';
 
 
 import { OpciontwoComponent } from './opciontwo/opciontwo.component';
@@ -59,6 +61,8 @@ import { IncidenciasModalComponent } from './shared/modals/incidenciasModal/inci
 
 import { SitioEstatus } from './components/sitioEstatus/sitioEstatus.component';
 
+
+
  @NgModule({
   declarations: [
     AppComponent,
@@ -85,8 +89,10 @@ import { SitioEstatus } from './components/sitioEstatus/sitioEstatus.component';
     ChildComponent,
     TramitesModalComponent,
     IncidenciasModalComponent,
-    SitioEstatus
-  ],
+    SitioEstatus,
+    DistritoModalidades,
+    RegionModalidades
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,

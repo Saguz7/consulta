@@ -361,12 +361,12 @@ export class ParentComponent {
         }else{
           itemmenu.parentNode.parentNode.parentNode.style.border = "1px solid #007ad9";
           itemmenu.parentNode.parentNode.parentNode.style.background = "#007ad9";
-          document.getElementById(div).style.border = "thick solid #0000FF";
+          document.getElementById(div).style.border = "thick solid #bbdefb";
           for(var i = 0; i < itemsmenu2.length; i++){
             itemsmenu2[i].style.color = "#000000";
           }
           itemmenu.style.color = "#FFFFFF";
-          document.getElementById(div).style.border = "thick solid #0000FF";
+          document.getElementById(div).style.border = "thick solid #bbdefb";
           this.asignarmostrado(indice,true);
           window.location.hash = '#'+div;
         }

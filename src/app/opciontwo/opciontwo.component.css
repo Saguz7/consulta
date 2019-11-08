@@ -1,3 +1,8 @@
+#divBusquedaOpciones{
+  margin-left: 7.3333333333%;
+  width: 85.5%;
+}
+
 
 .obConcesionarios{
   font-size: 16px;
@@ -15,6 +20,12 @@
 .sinsalirse{
   word-break: break-all;
 word-wrap: break-word;
+}
+
+.tabs .tab a:focus, .tabs .tab a:focus.active {
+    background-color:
+    rgba(76, 25, 187, 0.2);
+    outline: none;
 }
 
 #btnrealizarotrabusqueda{

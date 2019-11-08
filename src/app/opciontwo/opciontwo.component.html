@@ -3,7 +3,8 @@
     <div class="row">
       <div class="col s12">
         <div class="row">
-          <div class="col s12">
+          <div class="col s10 offset-s1" id="divBusquedaOpciones">
+            <br><br>
             <ul class="tabs">
               <li class="tab col s6"><a href="#test1"><label class="obConcesionarios">CONCESIONARIOS</label></a></li>
               <li class="tab col s6"><a href="#test2"><label class="obConcesionarios">LOCALIDADES y MUNICIPIOS</label></a></li>
@@ -25,12 +26,22 @@
             <div class="row">
               <div *ngIf="mostrardetalleslocalidad">
                 <!-- Componente de que muestra las opciones de Municipios -->
-                <div class="row" *ngIf="optBusquedaEntidad == true">
+                <div class="row" *ngIf="opBusGeo.busquedapormunicipio == true">
                   <app-municipioModalidades  [Entidad]="localidadamostrar.municipio" ></app-municipioModalidades>
                 </div>
                 <!-- Componente de que muestra las opciones de Localidades -->
-                <div class="row" *ngIf="optBusquedaEntidad == false">
+                <div class="row" *ngIf="opBusGeo.busquedaporlocalidad == true">
                   <app-localidadModalidades  [Entidad]="localidadamostrar.localidad"></app-localidadModalidades>
+                </div>
+
+                <!-- Componente de que muestra las opciones de Localidades -->
+                <div class="row" *ngIf="opBusGeo.busquedapordistrito == true">
+                  <app-distritoModalidades  [Entidad]="localidadamostrar.localidad"></app-distritoModalidades>
+                </div>
+
+                <!-- Componente de que muestra las opciones de Localidades -->
+                <div class="row" *ngIf="opBusGeo.busquedaporregion == true">
+                  <app-regionModalidades  [Entidad]="localidadamostrar.localidad"></app-regionModalidades>
                 </div>
               </div>
             </div>

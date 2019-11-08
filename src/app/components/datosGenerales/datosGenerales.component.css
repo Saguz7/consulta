@@ -1,7 +1,7 @@
 .conseciontitulo{
   font-size: 18px;
   font-family: fuenteparacuerpo;
-  color: #553276;
+  color: #000000;
 
 }
 
@@ -13,7 +13,7 @@
 }
 .card-title{
   font-size: 25px;
-  color: #000000;
+  color: #e91e63;
   font-family: fuenteparatitulos;
 }
 
@@ -171,7 +171,6 @@ nav .input-field label i {
 
 .conseciontitulo{
   font-size: 12px;
-  color: #000000;
 }
 
 .conseciontitulored{

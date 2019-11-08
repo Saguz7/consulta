@@ -1,13 +1,13 @@
 
 .obConcesionarios{
-  font-size: 16px;
+  font-size: 15px;
   color: black;
   font-family: fuenteparacuerpo;
 
 }
 
 .conseciontitulo{
-  font-size: 18px;
+  font-size: 15px;
   font-family: fuenteparacuerpo;
 
 }
@@ -21,6 +21,15 @@ word-wrap: break-word;
 #btnrealizarotrabusqueda{
   width: 40%;
 
+}
+
+.tc-blue-500 {
+    color:
+    #2196f3 !important;
+}
+
+.linea-div {
+    border: 1px dashed;
 }
 
 #btncambiarestado{
@@ -165,19 +174,19 @@ nav .input-field label i {
 }
 
 .conseciontitulo{
-  font-size: 22px;
+  font-size: 15px;
   color: #000000;
 }
 
 .conseciontitulored{
-  font-size: 24px;
+  font-size: 16px;
   color: #e91e63;
   font-family: fuenteparatitulos;
 
  }
 
 .conseciontitulopequeño{
-  font-size: 23px;
+  font-size: 16px;
   color: #000000;
   font-family: fuenteparacuerpo;
 
@@ -194,7 +203,7 @@ nav .input-field label i {
 }
 
 .conseciontitulopequeñored{
-  font-size: 20px;
+  font-size: 16px;
   color: #e91e63;
   font-family: fuenteparatitulos;
 
@@ -370,7 +379,8 @@ padding: 10px 90px;
 
 
 #divbusquedadearriba{
-   margin-left: 15%;
+   margin-left: 10%;
+   width: 80%;
 }
 
 #serie{
@@ -454,7 +464,7 @@ width: 70%; /*Aquí va el ancho de la Celda*/
 }
 
 #cardinformacionconsecionarios{
- }
+  }
 
 .tituloadvertenciacard{
   font-size: 25px;
@@ -522,6 +532,7 @@ width: 70%; /*Aquí va el ancho de la Celda*/
 
   #cambiotamaniosearch2 {
       width: 85%;
+
   }
 
   #nombre{
@@ -559,7 +570,9 @@ width: 70%; /*Aquí va el ancho de la Celda*/
 #div5responsivo{
   width: 100%;
 }
-
+#divresponsivosinright{
+  align-content:left;
+}
 
 #div7responsivo{
   width: 90%;
@@ -595,15 +608,15 @@ width: 70%; /*Aquí va el ancho de la Celda*/
 }
 
 .conseciontitulored{
-  font-size: 18px;
+  font-size: 12px;
 }
 
 .conseciontitulo{
-  font-size: 18px;
+  font-size: 12px;
 }
 
 .conseciontitulopequeñored{
-  font-size: 18px;
+  font-size: 12px;
 }
 
 .conseciontitulopequeño{
@@ -667,5 +680,8 @@ width: 70%; /*Aquí va el ancho de la Celda*/
 }
 
 
+#cardinformacionconsecionarios{
+  margin-left: -5%;
+ }
 
 }

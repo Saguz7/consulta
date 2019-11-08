@@ -1,6 +1,7 @@
   import {Component, OnInit, Input, Output,EventEmitter} from '@angular/core';
   import {Router} from '@angular/router';
   import {Concesionario} from '../models/vo/concesionario';
+  import {OpcionesBusGeo} from '../models/vo/opcionesBusquedadGeografica';
   import {Apollo} from 'apollo-angular';
   import gql from 'graphql-tag';
   import { Observable,Observer } from 'rxjs';
@@ -16,8 +17,12 @@
 export class SearchLocalidadComponent implements OnInit {
 
   divdebusqueda: boolean = true;
-  busquedaporlocalidad: boolean = false;
-  busquedapormunicipio: boolean = true;
+  busquedaporlocalidad: boolean = true;
+  busquedapormunicipio: boolean = false;
+  busquedapordistrito: boolean = false;
+  busquedaporregion: boolean = false;
+  opBusGeo: OpcionesBusGeo = new OpcionesBusGeo();
+
   registroabuscar: any;
   data: any;
   divplantillas: boolean = false;
@@ -39,16 +44,39 @@ export class SearchLocalidadComponent implements OnInit {
 
 
       seleccionarLocalidad(){
-        this.busquedaporlocalidad=true;
-        this.busquedapormunicipio=false;
-        this.TypeSearch.emit(false);
+        this.opBusGeo.busquedaporlocalidad=true;
+        this.opBusGeo.busquedapormunicipio=false;
+        this.opBusGeo.busquedapordistrito = false;
+        this.opBusGeo.busquedaporregion = false;
+         this.TypeSearch.emit(this.opBusGeo);
       }
 
 
       seleccionarMunicipio(){
-        this.busquedaporlocalidad=false;
-        this.busquedapormunicipio=true;
-        this.TypeSearch.emit(true);
+        this.opBusGeo.busquedaporlocalidad=false;
+        this.opBusGeo.busquedapormunicipio=true;
+        this.opBusGeo.busquedapordistrito = false;
+        this.opBusGeo.busquedaporregion = false;
+
+        this.TypeSearch.emit(this.opBusGeo);
+       }
+
+       seleccionarDistrito(){
+         this.opBusGeo.busquedaporlocalidad=false;
+         this.opBusGeo.busquedapormunicipio=false;
+         this.opBusGeo.busquedapordistrito = true;
+         this.opBusGeo.busquedaporregion = false;
+
+         this.TypeSearch.emit(this.opBusGeo);
+       }
+
+       seleccionarRegion(){
+         this.opBusGeo.busquedaporlocalidad=false;
+         this.opBusGeo.busquedapormunicipio=false;
+         this.opBusGeo.busquedapordistrito = false;
+         this.opBusGeo.busquedaporregion = true;
+ 
+         this.TypeSearch.emit(this.opBusGeo);
        }
 
        mychange(event)

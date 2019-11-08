@@ -6,6 +6,7 @@ import { Observable,Observer } from 'rxjs';
 declare var M: any;
 import {MenuItem} from 'primeng/api';
 import * as B from '../graphql/queries';
+import {OpcionesBusGeo} from '../models/vo/opcionesBusquedadGeografica';
 
  @Component({
   selector: 'app-opciontwo', templateUrl: './opciontwo.component.html', styleUrls: ['./opciontwo.component.css']
@@ -32,9 +33,11 @@ export class OpciontwoComponent implements OnInit {
   modalidades: any[];
   selectedModalidad: string = '';
   namecomponet: string = '';
+  opBusGeo: OpcionesBusGeo = new OpcionesBusGeo();
+
   constructor(
       private router?: Router,
-      private apollo?: Apollo 
+      private apollo?: Apollo
     ){}
 
     ngOnInit() {
@@ -60,7 +63,9 @@ export class OpciontwoComponent implements OnInit {
         }
 
         public seleccionarEntidad($event){
-          this.optBusquedaEntidad = $event;
+          this.opBusGeo = $event;
+          console.log(this.opBusGeo);
+
          }
 
         listarModalidades(){

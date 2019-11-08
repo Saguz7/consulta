@@ -1,4 +1,4 @@
-  import {Component, OnInit, Input, Output,EventEmitter} from '@angular/core';
+import { ComponentRef, ComponentFactoryResolver,ChangeDetectorRef, ViewContainerRef, ViewChild, Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
   import {Router} from '@angular/router';
   import {Concesionario} from '../models/vo/concesionario';
   import {Apollo} from 'apollo-angular';
@@ -27,14 +27,22 @@ export class SearchComponent implements OnInit {
   @Output() Result = new EventEmitter<any>();
   opBusquedaConcesionario: boolean = true;
   opBusquedaVehiculo: boolean = false;
+  opBusquedaSitio: boolean = false;
   divdebusquedaSitio: boolean = false;
   divsitio: boolean = false;
 
   sitios: any;
 
+
+  busquedaporneconomico: boolean = false;
+  busquedaporserie: boolean = false;
+  busquedapormotor: boolean = false;
+
+  vehiculos : any;
   constructor(
       private router?: Router,
-      private apollo?: Apollo
+      private apollo?: Apollo,
+
     ){}
 
   ngOnInit() {
@@ -49,6 +57,21 @@ export class SearchComponent implements OnInit {
          {nombre:"Centro Oaxaca8",localidad:"OAXACA DE JUAREZ"},
          {nombre:"Centro Oaxaca9",localidad:"OAXACA DE JUAREZ"},
          {nombre:"Centro Oaxaca10",localidad:"OAXACA DE JUAREZ"}
+       ];
+
+
+       this.vehiculos = [
+         {numero_economico:"322",serie:"67G3G2136721G3",estatus:"Activo",motor:"HECHO EN INDIA"},
+         {numero_economico:"322",serie:"67G3G2136721G3",estatus:"Activo",motor:"HECHO EN INDIA"},
+         {numero_economico:"322",serie:"67G3G2136721G3",estatus:"Activo",motor:"HECHO EN INDIA"},
+         {numero_economico:"322",serie:"67G3G2136721G3",estatus:"Activo",motor:"HECHO EN INDIA"},
+         {numero_economico:"322",serie:"67G3G2136721G3",estatus:"Activo",motor:"HECHO EN INDIA"},
+         {numero_economico:"322",serie:"67G3G2136721G3",estatus:"Activo",motor:"HECHO EN INDIA"},
+         {numero_economico:"322",serie:"67G3G2136721G3",estatus:"Activo",motor:"HECHO EN INDIA"},
+         {numero_economico:"322",serie:"67G3G2136721G3",estatus:"Activo",motor:"HECHO EN INDIA"},
+         {numero_economico:"322",serie:"67G3G2136721G3",estatus:"Activo",motor:"HECHO EN INDIA"},
+         {numero_economico:"322",serie:"67G3G2136721G3",estatus:"Activo",motor:"HECHO EN INDIA"}
+
        ];
       }
 
@@ -126,12 +149,21 @@ export class SearchComponent implements OnInit {
     mostrarOpcionesBusquedaConcesionario(){
       this.opBusquedaConcesionario= true;
       this.opBusquedaVehiculo= false;
+      this.opBusquedaSitio = false;
      }
 
 
     mostrarOpcionesBusquedaVehiculo(){
       this.opBusquedaConcesionario= false;
       this.opBusquedaVehiculo= true;
+      this.opBusquedaSitio = false;
+    }
+
+
+    mostrarOpcionesBusquedaSerie(){
+      this.opBusquedaConcesionario= false;
+      this.opBusquedaVehiculo= false;
+      this.opBusquedaSitio = true;
     }
 
 
@@ -148,6 +180,25 @@ export class SearchComponent implements OnInit {
         this.divplantillas = false;
 
 
+      }
+
+
+      asignarBusquedaXVehiculoNEconomico(){
+        this.busquedaporneconomico = true;
+        this.busquedaporserie = false;
+        this.busquedapormotor = false;
+      }
+
+      asignarBusquedaXVehiculoSerie(){
+        this.busquedaporneconomico = false;
+        this.busquedaporserie = true;
+        this.busquedapormotor = false;
+      }
+
+      asignarBusquedaXVehiculoMotor(){
+        this.busquedaporneconomico = false;
+        this.busquedaporserie = false;
+        this.busquedapormotor = true;
       }
 
 

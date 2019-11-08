@@ -8,7 +8,7 @@ export class CreadorComponentesPDFService {
   constructor() { }
 
   getDatosGenerales(concesion: any){
-     let datosGenerales = [ 
+     let datosGenerales = [
       {
           canvas: [
             {
@@ -51,17 +51,17 @@ export class CreadorComponentesPDFService {
       },
       { columns: [
           { width: 160, text: ''},
-          { width: 100, text: concesion.concesionario.nombre, fontSize: 11,bold: true, margin: [0, -17, 0, 0]}
+          { width: 100, text: concesion.concesionario.nombre, fontSize: 11 , margin: [0, -17, 0, 0]}
         ]
       },
       { columns: [
           { width: 270, text: ''},
-          { width: 100, text: concesion.concesionario.primerApellido, fontSize: 11,bold: true, margin: [0, -17, 0, 0]}
+          { width: 100, text: concesion.concesionario.primerApellido, fontSize: 11 , margin: [0, -17, 0, 0]}
         ]
       },
       { columns: [
           { width: 390, text: ''},
-          { width: 100, text: concesion.concesionario.segundoApellido, fontSize: 11,bold: true, margin: [0, -17, 0, 0]}
+          { width: 100, text: concesion.concesionario.segundoApellido, fontSize: 11 , margin: [0, -17, 0, 0]}
         ]
       },
       { columns: [
@@ -81,7 +81,7 @@ export class CreadorComponentesPDFService {
       },
       { columns: [
           { width: 56, text: ''},
-          { width: 100, text: 'CURP:', fontSize: 10,bold: true, margin: [0, 0, 0, 0]}
+          { width: 100, text: 'CURP:', fontSize: 10 , margin: [0, 0, 0, 0]}
         ]
       },
       {
@@ -120,7 +120,7 @@ export class CreadorComponentesPDFService {
           },
           { columns: [
               { width: 410, text: ''},
-              { width: 100, text: concesion.concesionario.rfc, fontSize: 10,bold: true, margin: [0, -15, 0, 0]}
+              { width: 100, text: concesion.concesionario.rfc, fontSize: 10, margin: [0, -15, 0, 0]}
             ]
           }
     ];
