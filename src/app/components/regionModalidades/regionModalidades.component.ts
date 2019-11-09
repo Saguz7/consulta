@@ -22,12 +22,18 @@ export class RegionModalidades implements OnInit {
   selectedModalidad: string = '';
   public tituloComponenteModalidad: any = "Modalidad";
   @Input() Entidad: any = '';
-
+  localidades: any[];
+  public tituloComponenteDistrito: any = "Distrito";
+  public tituloComponenteMunicipio: any = "Municipio";
+  public tituloComponenteLocalidad: any = "Localidad";
 
   constructor(
     ){}
     ngOnInit() {
 
+        $(document).ready(function(){
+          $('.collapsible').collapsible();
+        });
       $(document).ready(function(){
         $('.tabs').tabs();
       });
@@ -35,6 +41,11 @@ export class RegionModalidades implements OnInit {
             {label: 'Taxi', value: 'Taxi', cantidad: 120},
             {label: 'MotoTaxi', value: 'MotoTaxi', cantidad: 20}
         ];
+
+          this.localidades = [
+                {label: 'Ocotlan de Morelos', value: 'Ocotlan de Morelos', cantidad: 1},
+                {label: 'Oaxaca de Juarez', value: 'Oaxaca de Juarez', cantidad: 4}
+            ];
      }
 
 

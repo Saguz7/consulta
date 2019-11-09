@@ -25,6 +25,16 @@
             <app-searchLocalidad (LOstatus)="checkLocalidad($event)" (LResult)="comprobarLocalidad($event)" (TypeSearch)="seleccionarEntidad($event)"></app-searchLocalidad>
             <div class="row">
               <div *ngIf="mostrardetalleslocalidad">
+
+                <!-- Componente de que muestra las opciones de Localidades -->
+                <div class="row" *ngIf="opBusGeo.busquedaporregion == true">
+                 <app-regionModalidades  [Entidad]="localidadamostrar.localidad"></app-regionModalidades>
+                </div>
+                <!-- Componente de que muestra las opciones de Localidades -->
+                <div class="row" *ngIf="opBusGeo.busquedapordistrito == true">
+                  <app-distritoModalidades  [Entidad]="localidadamostrar.localidad"></app-distritoModalidades>
+                </div>
+
                 <!-- Componente de que muestra las opciones de Municipios -->
                 <div class="row" *ngIf="opBusGeo.busquedapormunicipio == true">
                   <app-municipioModalidades  [Entidad]="localidadamostrar.municipio" ></app-municipioModalidades>
@@ -34,15 +44,7 @@
                   <app-localidadModalidades  [Entidad]="localidadamostrar.localidad"></app-localidadModalidades>
                 </div>
 
-                <!-- Componente de que muestra las opciones de Localidades -->
-                <div class="row" *ngIf="opBusGeo.busquedapordistrito == true">
-                  <app-distritoModalidades  [Entidad]="localidadamostrar.localidad"></app-distritoModalidades>
-                </div>
 
-                <!-- Componente de que muestra las opciones de Localidades -->
-                <div class="row" *ngIf="opBusGeo.busquedaporregion == true">
-                  <app-regionModalidades  [Entidad]="localidadamostrar.localidad"></app-regionModalidades>
-                </div>
               </div>
             </div>
           </div>
